@@ -10,11 +10,16 @@ itemInput.addEventListener("change", function (e) {
 });
 let addList;
 addItem.addEventListener("click", function () {
-  addList = `<li>${newItem}</li>`;
+  if(itemInput.value == ''){
+    addList = false
+    alert("Please include an item");
+  }else{
+    addList = `<li>${newItem}</li>`;
   list.insertAdjacentHTML("beforeend", addList);
-  // addItem.style.backgroundColor = "rgb(128, 0, 70)";
   itemInput.value = "";
-  addList = undefined;
+  }
+  
+  
 });
 
 document.addEventListener("click", function (e) {
